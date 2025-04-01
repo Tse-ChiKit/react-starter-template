@@ -1,1 +1,42 @@
 @import "tailwindcss";
+
+@theme {
+  /* 品牌色 */
+  --color-brand-primary: #ff385c; /* 主品牌色 */
+  --color-brand-primary-hover: #ff1a4d; /* 悬停状态 */
+  --color-brand-primary-active: #d7043c; /* 点击状态 */
+  --color-brand-accent: #008489; /* 辅助强调色 */
+  --color-brand-accent-hover: #006f6f; /* 强调色悬停 */
+
+  /* 中性色阶 */
+  --color-neutral-900: #1a1a1a;
+  --color-neutral-800: #222222;
+  --color-neutral-700: #484848;
+  --color-neutral-500: #717171;
+  --color-neutral-300: #b0b0b0;
+  --color-neutral-200: #dddddd;
+  --color-neutral-100: #f7f7f7;
+  --color-neutral-0: #ffffff;
+
+  /* 语义化颜色 */
+  --color-surface-primary: var(--color-neutral-0); /* 主背景 */
+  --color-surface-secondary: var(--color-neutral-100); /* 次级背景 */
+  --color-text-primary: var(--color-neutral-800); /* 主文本 */
+  --color-text-secondary: var(--color-neutral-500); /* 辅助文本 */
+  --color-text-disabled: var(--color-neutral-300); /* 禁用状态 */
+  --color-border-default: var(--color-neutral-200); /* 默认边框 */
+  --color-border-emphasis: var(--color-neutral-300); /* 强调边框 */
+
+  /* 状态叠加层 */
+  --color-state-hover: rgba(0, 0, 0, 0.05); /* 通用悬停 */
+  --color-state-active: rgba(0, 0, 0, 0.1); /* 通用点击 */
+}
+
+@layer components {
+  .input-field-base {
+    @apply block w-full px-3 py-2 border border-border-default rounded-md shadow-sm;
+    @apply placeholder:text-text-secondary focus:outline-none;
+    @apply focus:ring-2 focus:ring-brand-primary focus:border-transparent;
+    @apply transition-all duration-200 text-text-primary;
+  }
+}

@@ -14,46 +14,62 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-surface-secondary px-4">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm p-6 bg-white rounded-lg shadow-lg"
+        className="w-full max-w-sm p-8 bg-surface-primary rounded-xl shadow-lg border border-border-default"
       >
-        <h2 className="text-2xl font-semibold text-gray-900 mb-6">
+        {/* 主标题 - 使用品牌主色 */}
+        <h2 className="text-3xl font-bold text-brand-primary mb-8 text-center">
           {t("login")}
         </h2>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-5">
+          {/* 输入框 - 带聚焦状态指示 */}
           <input
             name="email"
             type="email"
             placeholder="Email"
-            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            className="p-3 border border-border-default rounded-lg 
+                     placeholder:text-text-secondary
+                     focus:outline-none focus:ring-2 focus:ring-brand-primary-100
+                     transition-all duration-200"
           />
           <input
             name="password"
             type="password"
             placeholder="Password"
-            className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+            className="p-3 border border-border-default rounded-lg
+                     placeholder:text-text-secondary
+                     focus:outline-none focus:ring-2 focus:ring-brand-primary-100
+                     transition-all duration-200"
           />
         </div>
 
+        {/* 主按钮 - 完整交互状态 */}
         <button
           type="submit"
-          className="w-full mt-4 bg-blue-600 text-white font-medium p-3 rounded-lg hover:bg-blue-700 active:bg-blue-800 transition disabled:opacity-50"
+          className="w-full mt-6 bg-brand-primary text-surface-primary font-semibold p-3 rounded-lg
+                   hover:bg-brand-primary-hover active:bg-brand-primary-active 
+                   focus:outline-none focus:ring-2 focus:ring-brand-primary-100
+                   transition-colors duration-200
+                   disabled:opacity-70 disabled:cursor-not-allowed"
           disabled={loading}
         >
-          {loading ? "Loading..." : t("login")}
+          {loading ? t("loading") : t("login")}
         </button>
 
-        {/* Register Navigation Link */}
-        <div className="mt-4 text-center">
-          <p className="text-gray-600 text-sm">
+        {/* 注册链接 - 使用辅助强调色 */}
+        <div className="mt-6 text-center">
+          <p className="text-neutral-500 text-sm">
             {t("no_account")}{" "}
             <button
               type="button"
               onClick={() => navigate("/register")}
-              className="text-blue-600 font-medium hover:underline focus:outline-none"
+              className="text-brand-accent font-medium 
+                       hover:text-brand-accent-hover hover:underline 
+                       focus:outline-none focus:ring-2 focus:ring-brand-accent-100
+                       transition-colors duration-200"
             >
               {t("signup")}
             </button>
